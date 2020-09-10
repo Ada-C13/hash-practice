@@ -27,6 +27,22 @@ describe "exercises" do
       answer.each_with_index do |array, index|
         expect(expected_answer).must_include array.sort
       end
+
+      # Added tests for myself to make sure I was getting the expected answer
+      # I like to work for my red -> green
+      expect(answer.size).must_equal 3
+      answer.each do |subarray|
+        if subarray.include?("ate")
+          expect(subarray.size).must_equal 3
+          expect(subarray).include? "eat"
+          expect(subarray).include? "tea"
+        elsif subarray.include?("nat")
+          expect(subarray.size).must_equal 2
+          expect(subarray).include? "tan"
+        else
+          expect(subarray.size).must_equal 1
+        end
+      end
     end
 
     it "will work for strings with no anagrams" do
@@ -49,6 +65,9 @@ describe "exercises" do
       answer.each_with_index do |array, index|
         expect(expected_answer).must_include array.sort
       end
+
+      # Personal tests
+      expect(answer.size).must_equal 6
     end
 
     it "will work for strings that are all anagrams" do
@@ -65,10 +84,14 @@ describe "exercises" do
       answer.each_with_index do |array, index|
         expect(expected_answer).must_include array.sort
       end
+
+      # Personal tests
+      expect(answer.size).must_equal 1
+      expect(answer[0].size).must_equal 6
     end
   end
 
-  describe "top_k_frequent_elements" do
+  xdescribe "top_k_frequent_elements" do
     it "works with example 1" do
       # Arrange
       list = [1,1,1,2,2,3]

@@ -5,7 +5,25 @@
 # Space Complexity: ?
 
 def grouped_anagrams(strings)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  return [] if strings.empty?
+  numbered_letters = {}
+  ('a'..'z').each_with_index { |l, i| numbered_letters[l] = i}
+
+  possible_anagrams = {}
+
+  strings.each do |string|
+    value = 0
+    string.each_char do |char|
+      value += numbered_letters[char]
+    end
+    if possible_anagrams[value]
+      possible_anagrams[value] << string 
+    else
+      possible_anagrams[value] = [string]
+    end
+  end
+
+  return possible_anagrams.values
 end
 
 # This method will return the k most common elements
