@@ -1,19 +1,59 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n2)
+# Space Complexity: O(n)
 
 def grouped_anagrams(strings)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  hashOfArrays = {}
+  strings.each do |string|
+    key = string.split("")
+    unless hashOfArrays.keys.include?(key)
+    hashOfArrays.values do |array|
+      internalArr = array[0].split("")
+      count = 0 
+      internalArr.each do |char|
+        if !string.include?(char)
+        count +=1
+        end
+      end 
+      if count == internalArr.length
+        array<< string
+      end
+    end
+    end
+  end 
+
+  return hashOfArrays.values
 end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n2)
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  numHash  = {}
+  returnList = []
+  list.each do |num|
+    if numHash.keys.include?(num)
+      numHash[num]+=1
+    else
+      numHash[num]=1
+    end
+  end
+
+  numHash.sort.reverse
+
+  numHash.keys.each do |num|
+    if returnList.length < k
+    returnList<< num 
+    else
+      return returnList
+    end
+  end
+
+  return returnList
+
 end
 
 
