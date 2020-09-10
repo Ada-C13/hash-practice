@@ -10,10 +10,25 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(nlogn)
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  result = []
+  return result if list.empty? || k > list.length 
+  hash = {}
+  list.each do |value|
+    if hash[value]
+      hash[value] += 1
+    else
+      hash[value] = 1
+    end
+  end
+
+  sorted_frequncies = hash.sort_by {|k, v| -v}
+  k.times do |i|
+    result << sorted_frequncies[i][0]
+  end
+  return result 
 end
 
 
