@@ -24,7 +24,8 @@ end
 # in the case of a tie it will select the first occuring element.
 # Time Complexity: O(n^2)
 # Space Complexity: O(n)
-def top_k_frequent_elements(list, k)
+def top_k_frequent_elements(list, k) 
+
   hash = {}
   list.each do |num|
     if hash[num]
@@ -34,18 +35,12 @@ def top_k_frequent_elements(list, k)
     end 
   end 
 
-  result = []
-  i = 0 
-  while i < k do  
-    hash.each do |key,v|
-      if v == hash.values.sort_by{|v|-v}[i] && !result.include?(key) && result.length < k
-        result.push(key)
-      end 
-    end 
-    i += 1 
+  result = [] 
+  hash.sort_by{|k,v| -v}.slice(0,k).each do |array|
+    result.push(array[0])
   end 
 
-  return result 
+  return  result 
 end
 
 
