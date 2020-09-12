@@ -35,11 +35,11 @@ end
 def top_k_frequent_elements(list, k)
   frequency = {}
 
-  list.each do |char|
-    if !frequency[char]
-      frequency[char] = 1
+  list.each do |item|
+    if !frequency[item]
+      frequency[item] = 1
     else
-      frequency[char] += 1
+      frequency[item] += 1
     end
   end
 
