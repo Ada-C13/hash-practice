@@ -7,13 +7,6 @@
 def grouped_anagrams(strings)
   # raise NotImplementedError, "Method hasn't been implemented yet!"
   return [] if strings.empty?
-    # list = ["eat", "tea", "tan", "ate", "nat", "bat"]
-    # answer = grouped_anagrams(list)
-    # expected_answer = [
-    #   ["ate","eat","tea"],
-    #   ["nat","tan"],
-    #   ["bat"]
-    # ]
     hash = Hash.new([])
     strings.each.with_index do |element, i| 
       hash[element.downcase.chars.sort.join] += [i] 
@@ -24,7 +17,6 @@ def grouped_anagrams(strings)
         strings[i]
       end
     end
-
     return results
 end
 
@@ -33,17 +25,11 @@ end
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
-  # list = [1,1,1,2,2,3]
-  # k = 2 take top 2
-  # output:[1,2]
   return [] if list.empty?
   hash = {}
   list.each do |element| 
     hash[element] ? hash[element] += 1 : hash[element] = 1
   end
-
-  # get top k highest values and return keys
-  #sorth values 
 
   # if all values are eaqul to 1 return all keys
   return hash.keys.take(k) if hash.values.all? { |v| v == 1 }
