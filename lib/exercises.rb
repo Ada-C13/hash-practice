@@ -28,24 +28,28 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(nlogn) since I'm calling a sort_by enumerable
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
   # loop through list and create hash: num => count
   # then search for the k-most frequent values mapped to key
   return [] if list.empty?
-
   count = {}
   list.each do |num|
     count[num] ? count[num] += 1 : count[num] = 1
   end
-  # print count
-  
-  ans = count.keys.max_by(k){|key| count[key] }
-  # https://apidock.com/ruby/Enumerable/max_by
-  # print count.keys
-  # print ans
+
+  sorted_hash = count.sort_by {|k, v| -v}   # hash#sort_by returns a matrix (2-D array)
+  ans = []
+  i = 0
+  while i < k
+    ans << sorted_hash[i][0]
+    i += 1
+  end
+
   return ans
+  # ans = count.keys.max_by(k){|key| count[key] }
+  # https://apidock.com/ruby/Enumerable/max_by  # WHY?! what does the max_by actually do?!
 end
 
 
