@@ -1,8 +1,8 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) n is the amount of strings given
+# Space Complexity: O(n) each string is saved into a new hash
 
 def grouped_anagrams(strings)
   return [] if strings.empty?
@@ -31,7 +31,19 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  return list if list.empty? || list.length == k
+  count = {}
+  
+  list.each do |num|
+      count[num] ? count[num] += 1 : count[num] = 1
+  end
+  
+  sorted = count.sort_by { |k, v| -v }
+  
+  most_frequent = Array.new(k)
+  k.times { |i| most_frequent[i] = sorted[i][0] } 
+  
+  return most_frequent
 end
 
 
