@@ -58,10 +58,45 @@ end
 #   Each element can either be a ".", or a digit 1-9
 #   The same digit cannot appear twice or more in the same 
 #   row, column or 3x3 subgrid
-# Time Complexity: ?
-# Space Complexity: ?
+# Reference: https://www.tutorialspoint.com/valid-sudoku-in-python
+# Time Complexity: O(n^2) where n is the length of the input table and since table is a 2d array
+# Space Complexity: O(1) where the extra hashes are constant tracking 1~9
 def valid_sudoku(table)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  # 1. check rows 2. check columns 3. check sub-boxes
+  # utilize the indices in the 2D-array and use hashed to keep track
+  (0...9).each do |i|
+    row = {}
+    col = {}
+    sub_box = {}
+    # below marks the anchor points for each sub-box: [0,0], [0,3], [0,6], [3,0], [3,3], [3,6], [6,0], [6,3], [6,6]
+    sub_row = 3 * (i / 3)
+    sub_col = 3 * (i % 3)
+
+    (0...9).each do |j|
+      # check rows
+      if table[i][j] =~ /\d/ && row[table[i][j]]
+        return false
+      else
+        row[table[i][j]] = 1
+      end
+      # check columns
+      if table[j][i] =~ /\d/ && col[table[j][i]]
+        return false
+      else
+        col[table[j][i]] = 1
+      end
+      # check sub-boxes: scope the boundaries of sub-boxes according to the anchor points sub_row and sub_col
+      sr = sub_row + (j / 3)
+      sc = sub_col + (j % 3)
+      if table[sr][sc] =~ /\d/ && sub_box[table[sr][sc]]
+        return false
+      else
+        sub_box[table[sr][sc]] = 1
+      end
+    end
+  end
+
+  return true
 end
 
 
