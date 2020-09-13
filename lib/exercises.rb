@@ -8,13 +8,12 @@ def grouped_anagrams(strings)
   return [] if strings.nil? || strings.empty? || !strings.is_a?(Array)
   strings.each do |str|   
     key = str.chars.sort.join
-    if h[key].nil?
-      h[key] = [str]
-    else
+    if h.include?(key)
       h[key] << str
+    else
+      h[key] = [str]
     end 
   end
-  p h.values
   return h.values
 end
 
@@ -27,13 +26,12 @@ def top_k_frequent_elements(list, k)
   solution = []
   return solution if list.nil? || list.empty? || !list.is_a?(Array)
   list.each do |element|
-    if h[element].nil?
-      h[element] = 1
-    else
+    if h.include?(element)
       h[element] += 1
+    else
+      h[element] = 1
     end
   end
-  p h
   k.times do
     top = nil
     h.each do |element,value|  
