@@ -76,7 +76,6 @@ describe "exercises" do
 
       # Act
       answer = top_k_frequent_elements(list, k)
-      puts "ANSWER: #{answer}"
 
       # Assert
       expect(answer.sort).must_equal [1,2]
