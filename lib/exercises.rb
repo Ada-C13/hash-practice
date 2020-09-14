@@ -37,11 +37,10 @@ def top_k_frequent_elements(list, k)
     end
   end
 
+  sorted_hash = hash.sort_by {|k, v| -v}
+
   answer = []
-  returned_count = k
-
-  sorted_hash = hash.values.sort
-
+  
   k.times do |i|
     answer << sorted_hash[i][0]
   end
