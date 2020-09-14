@@ -26,8 +26,27 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
+  return [] if list.empty?
   hash = {}
 
+  list.each do |num|
+    if hash[num]
+      hash[num] =+ 1
+    else
+      hash[num] = 1
+    end
+  end
+
+  answer = []
+  returned_count = k
+
+  sorted_hash = hash.values.sort
+
+  k.times do |i|
+    answer << sorted_hash[i][0]
+  end
+
+  return answer
 
 end
 
