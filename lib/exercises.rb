@@ -1,7 +1,7 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: O(n log n)
+# Time Complexity: O(n * m)
 # Space Complexity: O(n)
 def grouped_anagrams(strings)
   return [] if strings.empty?
@@ -9,7 +9,7 @@ def grouped_anagrams(strings)
   groups = {}
 
   strings.each do |string|
-    sorted = string.chars.sort # makes this time efficiency of O(n log n)
+    sorted = string.chars.sort 
 
     if groups[sorted]
       groups[sorted] << string
