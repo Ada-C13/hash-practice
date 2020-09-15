@@ -5,11 +5,14 @@
 # Space Complexity: O(n)
 
 def grouped_anagrams(strings)
-  # create hash map with the uh...keys that represent all the letters... and then the values are an array of strings
   anagram_hash = {}
 
   strings.each do |str|
-    bucket = anagram_hash.keys.find { |bucket| /^[#{bucket}]+$/.match(str) }
+    bucket = anagram_hash.keys.find do |b|
+      unique_chars = b.chars.sort.join
+      unique_chars == str.chars.sort.join
+    end
+
     if !bucket.nil?
       anagram_hash[bucket] << str
     else
