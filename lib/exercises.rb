@@ -27,7 +27,18 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  elements_hash = {}
+
+  #establish the hash
+  list.each do |element|
+    if elements_hash[element]
+      elements_hash[element] += 1
+    else
+      elements_hash[element] = 1
+    end
+  end
+
+  # grab the key for the highest number for total of k times
 end
 
 
