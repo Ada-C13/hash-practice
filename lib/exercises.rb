@@ -1,11 +1,22 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n * m(logm)), where n is the number of strings and m is the length of each string
+# Space Complexity: O(n), where n is the number of strings
 
 def grouped_anagrams(strings)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  anagrams = Hash.new
+  
+  strings.each do |s|
+    # sort each string, assign to variable
+    bucket = anagrams[s.chars.sort.join] 
+    # check if sorted string is present in hash keys
+    # if present, add original string to existing bucket array
+    # otherwise, create a new bucket array
+    bucket ? bucket.push(s) : bucket = [s]
+  end
+
+  return anagrams.values
 end
 
 # This method will return the k most common elements
