@@ -12,23 +12,23 @@
 # end
 
 def grouped_anagrams(strings)
-  
+
   new_hash = Hash.new()
 
   strings.each do |word|
     # calculate the hash key
     key_word = word.downcase.chars.sort.join
-   
+
       if new_hash[key_word]  == nil
         new_hash[key_word] = []
       end
       array_value = new_hash[key_word]
-  
+
     length = array_value.length
     array_value[length] = word
   end
-  
-  return new_hash
+
+  return new_hash.values
 end
 
 # This method will return the k most common elements
