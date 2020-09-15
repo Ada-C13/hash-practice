@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
@@ -26,6 +27,7 @@ def grouped_anagrams(strings)
     length = array_value.length
     array_value[length] = word
   end
+  
   return new_hash
 end
 
@@ -34,17 +36,16 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 # def top_k_frequent_elements(list, k)
-  # raise NotImplementedError, "Method hasn't been implemented yet!"
-  input = [1,1,1,2,2,3]
-  k = 2
+# raise NotImplementedError, "Method hasn't been implemented yet!"
+input = [1, 1, 1, 2, 2, 3]
+k = 2
 
 def top_k_frequent_elements(list, k)
-  list.group_by(&:itself).sort_by {|_,s| -s.length}.first(k).map(&:first)
+  list.group_by(&:itself).sort_by { |_, s| -s.length }.first(k).map(&:first)
 end
 
 top_k_frequent_elements(input, k)
 # end
-
 
 # This method will return the true if the table is still
 #   a valid sudoku table.
@@ -53,6 +54,6 @@ top_k_frequent_elements(input, k)
 #   row, column or 3x3 subgrid
 # Time Complexity: ?
 # Space Complexity: ?
-def valid_sudoku(table)
+def valid_sudoku(_table)
   raise NotImplementedError, "Method hasn't been implemented yet!"
 end
