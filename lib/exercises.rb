@@ -11,6 +11,8 @@
 #   new_hash.map { |key, indexes| indexes.map { |i| strings[i] } }
 # end
 
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def grouped_anagrams(strings)
   
   new_hash = Hash.new()
