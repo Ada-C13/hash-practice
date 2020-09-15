@@ -4,10 +4,29 @@
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
+# def grouped_anagrams(strings)
+#   new_hash = Hash.new([])
+#   strings.each.with_index { |word, i| new_hash[word.downcase.chars.sort.join] += [i] }
+#   new_hash.map { |key, indexes| indexes.map { |i| strings[i] } }
+# end
+
 def grouped_anagrams(strings)
-  new_hash = Hash.new([])
-  strings.each.with_index { |el, i| new_hash[el.downcase.chars.sort.join] += [i] }
-  new_hash.map { |key, indexes| indexes.map { |i| strings[i] } }
+  
+  new_hash = Hash.new()
+
+  strings.each do |word|
+    # calculate the hash key
+    key_word = word.downcase.chars.sort.join
+   
+      if new_hash[key_word]  == nil
+        new_hash[key_word] = []
+      end
+      array_value = new_hash[key_word]
+  
+    length = array_value.length
+    array_value[length] = word
+  end
+  return new_hash
 end
 
 # This method will return the k most common elements
