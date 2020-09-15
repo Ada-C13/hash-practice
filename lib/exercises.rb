@@ -1,11 +1,22 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n^2) - Nested loop
+# Space Complexity: O(n)
 
 def grouped_anagrams(strings)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  # create hash map with the uh...keys that represent all the letters... and then the values are an array of strings
+  anagram_hash = {}
+
+  strings.each do |str|
+    bucket = anagram_hash.keys.find { |bucket| /^[#{bucket}]+$/.match(str) }
+    if !bucket.nil?
+      anagram_hash[bucket] << str
+    else
+      anagram_hash[str] = [str]
+    end
+  end
+  return anagram_hash.values
 end
 
 # This method will return the k most common elements
@@ -25,5 +36,5 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def valid_sudoku(table)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  # raise NotImplementedError, "Method hasn't been implemented yet!"
 end
