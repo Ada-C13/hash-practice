@@ -39,6 +39,8 @@ def top_k_frequent_elements(list, k)
   end
 
   # grab the key for the highest number for total of k times
+
+  return elements_hash.keys.max_by(k) { |key| elements_hash[key] }
 end
 
 
