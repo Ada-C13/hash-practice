@@ -2,14 +2,6 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: O(n)
-# Space Complexity: O(n)
-
-# def grouped_anagrams(strings)
-#   new_hash = Hash.new([])
-#   strings.each.with_index { |word, i| new_hash[word.downcase.chars.sort.join] += [i] }
-#   new_hash.map { |key, indexes| indexes.map { |i| strings[i] } }
-# end
 
 # Time Complexity: O(n)
 # Space Complexity: O(n)
@@ -32,6 +24,18 @@ def grouped_anagrams(strings)
 
   return new_hash.values
 end
+
+    # Another solution
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
+
+    # def grouped_anagrams(strings)
+    #   new_hash = Hash.new([])
+    #   strings.each.with_index { |word, i| new_hash[word.downcase.chars.sort.join] += [i] }
+    #   new_hash.map { |key, indexes| indexes.map { |i| strings[i] } }
+    # end
+
+
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
@@ -75,15 +79,15 @@ def top_k_frequent_elements(list, k)
   return elements[0..(k-1)]
 end
 
-# another solution
-# input = [1, 1, 1, 2, 2, 3]
-# k = 2
+    # another solution
+    # input = [1, 1, 1, 2, 2, 3, 3]
+    # k = 2
 
-# def top_k_frequent_elements(list, k)
-#   list.group_by(&:itself).sort_by { |key, value| -value.length }.first(k).map(&:first)
-# end
+    # def top_k_frequent_elements(list, k)
+    #   list.group_by(&:itself).sort_by { |key, value| -value.length }.first(k).map(&:first)
+    # end
 
-# top_k_frequent_elements(input, k)
+    # top_k_frequent_elements(input, k)
 
 
 # This method will return the true if the table is still
