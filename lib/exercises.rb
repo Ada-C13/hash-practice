@@ -3,6 +3,7 @@
 # Each subarray will have strings which are anagrams of each other
 # Time Complexity: ?
 # Space Complexity: ?
+# verifying i can push
 
 def grouped_anagrams(strings)
   raise NotImplementedError, "Method hasn't been implemented yet!"
