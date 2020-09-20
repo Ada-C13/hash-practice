@@ -129,6 +129,14 @@ describe "exercises" do
       expect(answer.sort).must_equal [1]
     end
 
+    it "will work for [3, 3, 3, 3, 3, 1, 1, 2, 2, 2]" do
+      list = [3, 3, 3, 3, 3, 1, 1, 2, 2, 2]
+      k = 2
+
+      answer = top_k_frequent_elements(list, k)
+
+      expect(answer.sort).must_equal [2, 3]
+    end
   end
 
   xdescribe "valid sudoku" do
