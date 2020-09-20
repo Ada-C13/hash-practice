@@ -23,8 +23,8 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occurring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O (n log n) due to sort_by / quick sort - best case. Worst case is O(n^2) if the data is already ordered
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
   return [] if list.empty?
   hash = {}
@@ -37,7 +37,7 @@ def top_k_frequent_elements(list, k)
     end
   end
 
-  sorted_hash = hash.sort_by {|k, v| -v}
+  sorted_hash = hash.sort_by {|key, value| -value}
 
   answer = []
   
@@ -57,6 +57,37 @@ end
 #   row, column or 3x3 subgrid
 # Time Complexity: ?
 # Space Complexity: ?
-def valid_sudoku(table)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+
+def complete_sudoku
+  return {
+    1 => 1,
+    2 => 1,
+    3 => 1,
+    4 => 1,
+    5 => 1,
+    6 => 1,
+    7 => 1,
+    8 => 1,
+    9 => 1
+  }
 end
+
+
+def valid_sudoku(table)
+
+  # rows = {}
+  # cols = {}
+  # mini_square = {}
+
+  # i = 0 # current row
+  # j = 0 # current column
+  # until i > 9
+  #   until j > 9
+  #     box = table[i][j];
+  #     j += 1
+  #   end
+  #   i += 1
+  # end
+end
+
+
