@@ -40,15 +40,9 @@ def top_k_frequent_elements(list, k)
       counter[num] += 1
     end
   end
-  puts "this is counter"
-  p counter
-
-  puts "the K is " + k.to_s
  
   # find the K max counts
   highest_counts = counter.values.max(k)
-  puts "this is highest_counts"
-  p highest_counts
   # return the values of those keys
   most_frequent = []
   highest_counts.each do |n|
