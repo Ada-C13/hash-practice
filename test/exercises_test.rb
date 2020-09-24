@@ -130,7 +130,7 @@ describe "exercises" do
     end
 
     it "will work for [3, 3, 3, 3, 3, 1, 1, 2, 2, 2]" do
-      list = [3, 3, 3, 3, 3, 1, 1, 2, 2]
+      list = [3, 3, 3, 3, 3, 1, 1, 2, 2, 2]
       k = 2
 
       answer = top_k_frequent_elements(list, k)
