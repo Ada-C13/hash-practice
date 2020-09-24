@@ -24,12 +24,11 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
   elements_hash = {}
 
-  #establish the hash
   list.each do |element|
     if elements_hash[element]
       elements_hash[element] += 1
@@ -38,8 +37,7 @@ def top_k_frequent_elements(list, k)
     end
   end
 
-  # grab the key for the highest number for total of k times
-
+  #this doesn't pass tests — instead of grabbing the FIRST most frequent, it grabs the most frequent, period. I couldn't figure out how to do the other way
   return elements_hash.keys.max_by(k) { |key| elements_hash[key] }
 end
 
