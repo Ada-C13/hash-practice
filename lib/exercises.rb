@@ -1,7 +1,7 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: O(n^2) where n is the number of strings? || O(n) where n is the total number of characters? 
+# Time Complexity: O(n) since we're only looping through the words once
 # Space Complexity: O(n) where a new hash is storing the n # of strings
 
 def grouped_anagrams(strings)
@@ -59,7 +59,7 @@ end
 #   The same digit cannot appear twice or more in the same 
 #   row, column or 3x3 subgrid
 # Reference: https://www.tutorialspoint.com/valid-sudoku-in-python
-# Time Complexity: O(n^2) where n is the length of the input table and since table is a 2d array
+# Time Complexity: O(1) since a Sudoku board is always 9x9 (81 cells), scaling never changes
 # Space Complexity: O(1) where the extra hashes are constant tracking 1~9
 def valid_sudoku(table)
   # 1. check rows 2. check columns 3. check sub-boxes
