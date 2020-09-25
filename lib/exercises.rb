@@ -11,7 +11,7 @@ def grouped_anagrams(strings)
 
    a_key = string.chars.sort
 
-   if hash.key? (a_key)
+   if hash[a_key]
      hash[a_key] << string 
    else
      hash[a_key] = [string]
