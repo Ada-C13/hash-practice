@@ -18,12 +18,7 @@ def grouped_anagrams(strings)
    end
   end 
 
-   arrayArrays = []
-   hash.each do | key , value|
-     arrayArrays << hash[key]
-   end
-
-   return arrayArrays 
+   return hash.values
 end
 
 # This method will return the k most common elements
