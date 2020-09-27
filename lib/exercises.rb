@@ -22,6 +22,7 @@ end
 # in the case of a tie it will select the first occuring element.
 # Time Complexity: O(n log n)
 # Space Complexity: O(n)
+# not sure why this one is failing a test bc it returns the correct response in repl??
 def top_k_frequent_elements(list, k)
   return [] if list == []
   hash = {}
