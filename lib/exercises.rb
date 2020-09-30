@@ -21,8 +21,8 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: On
+# Space Complexity: On
 def top_k_frequent_elements(list, k)
   result = []
   list = list.sort.uniq
