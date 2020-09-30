@@ -24,7 +24,19 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  result = []
+  list = list.sort.uniq
+
+  return list if list.length == k
+  return result if list.length == 0 
+
+  i = 0
+  k.times do 
+    result << list[i]
+    i += 1
+  end 
+
+  return result
 end
 
 
