@@ -34,30 +34,26 @@ end
 # in the case of a tie it will select the first occuring element.
 # Time Complexity: 0(1)
 # Space Complexity: 0(n)
+
 def top_k_frequent_elements(list, k)
-  return [] if list.empty?
+    return [] if list.empty?
 
-  hash1 = {}
+    hash1 = {}
 
-  # create hash from list where same elements(key) are tallied(value)
-  list.each do |num|
-    if hash1[num]
-      hash1[num] += 1
-    else 
-      hash1[num] = 1
+  list.each do |element|
+    if hash1[element]
+      hash1[element] += 1
+    else
+      hash1[element] = 1
     end
-  
   end
-  # sort hash by value - descending
-  sorted = hash1.sort_by { |key, value| value }.reverse
-  answer = []
+  sorted = hash1.sort_by {|key, value| -value }
+  result = []
   k.times do |index|
-    answer << sorted[index].first
+    result << sorted[index][0]
   end
-  
-  return answer
-
-  end # closing end for top_k_frequent_elements method
+    return result
+end
 
 
 # This method will return the true if the table is still
