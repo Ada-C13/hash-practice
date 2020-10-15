@@ -47,7 +47,29 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
+  return [] if list.empty? || k == 0
+  
+  hash, result = [], []
+
+  list.each do |num|
+    hash[num] ? hash[num] += 1 : hash[num] = 1
+  end
+
+  k.times do |time|
+    max_count, top_occurence = 0, nil
+
+    list.each do |num|
+      if hash[num] > max_count
+        max_count = hash[num]
+        top_occurence = num
+      end
+    end
+
+    result << top_occurence
+    list -= [top_occurence]
+  end
+
+  return result
 end
 
 
