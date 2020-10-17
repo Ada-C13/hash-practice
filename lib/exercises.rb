@@ -1,8 +1,8 @@
 
 # This method will return an array of arrays.
 # Each subarray will have strings which are anagrams of each other
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 
 # hash function that assigns each letter a value
 def alphabet_keys()
@@ -46,12 +46,10 @@ end
 
 # This method will return the k most common elements
 # in the case of a tie it will select the first occuring element.
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def top_k_frequent_elements(list, k)
   return [] if list.empty?
-  # input: list = [1,1,1,2,2,3]
-  # k = 2
   frequency = {}
   list.each do |i|
     frequency[i] ? (frequency[i] += 1) : (frequency[i] = 1)
