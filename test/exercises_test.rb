@@ -81,6 +81,18 @@ describe "exercises" do
       expect(answer.sort).must_equal [1,2]
     end
 
+    it "works with example 1.5" do
+      # Arrange
+      list = [2,1,1,2,2,3]
+      k = 2
+
+      # Act
+      answer = top_k_frequent_elements(list, k)
+
+      # Assert
+      expect(answer).must_equal [2,1]
+    end
+
     it "works with example 2" do
       # Arrange
       list = [1]

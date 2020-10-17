@@ -49,9 +49,30 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def top_k_frequent_elements(list, k)
-  raise NotImplementedError, "Method hasn't been implemented yet!"
-end
+  return [] if list.empty?
+  # input: list = [1,1,1,2,2,3]
+  # k = 2
+  frequency = {}
+  list.each do |i|
+    frequency[i] ? (frequency[i] += 1) : (frequency[i] = 1)
+  end
 
+  nums = []
+  unique = list.uniq
+  max = frequency.values.max
+
+  until max == 0 || nums.length == k
+    unique.each do |i|
+      break if nums.length == k
+      if frequency[i] == max
+        nums << i
+      end
+    end
+    max -= 1
+  end
+
+  return nums
+end
 
 # This method will return the true if the table is still
 #   a valid sudoku table.
